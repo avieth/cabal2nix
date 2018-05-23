@@ -168,7 +168,7 @@ processPackage Options{..} pkg = do
 
       deriv :: Derivation
       deriv = withHpackOverrides $ fromGenericPackageDescription (const True)
-                                            (\i -> Just (binding # (i, path # [i])))
+                                            (\i -> Just (binding # (i, path # ["pkgs", i])))
                                             optSystem
                                             (unknownCompilerInfo optCompiler NoAbiTag)
                                             flags
